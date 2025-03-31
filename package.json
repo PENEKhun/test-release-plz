@@ -2,7 +2,7 @@
     "name": "penekdoc-test",
     "version": "0.0.0",
     "private": "true",
-    "description": "POC",
+    "description": "Test-driven documentation for RESTful services",
     "license": "Apache-2.0",
     "author": {
         "name": "Moon Seonghun",
