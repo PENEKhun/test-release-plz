@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.1](https://github.com/PENEKhun/test-release-plz/compare/v0.1.0...v0.1.1) (2025-03-31)
+
+
+### 🧹 Chores
+
+* aa~ ([326f4bc](https://github.com/PENEKhun/test-release-plz/commit/326f4bc2b1fe28f428818f79af8cb075d876aa2b))
+
 ## [0.1.0](https://github.com/PENEKhun/test-release-plz/compare/v0.0.1...v0.1.0) (2025-03-31)
 
 
