@@ -15,6 +15,7 @@
         { "type": "perf", "section": "🧹 Chores", "hidden": false },
         { "type": "refactor", "section": "🧹 Chores", "hidden": false },
         { "type": "test", "section": "🧹 Chores", "hidden": false },
+        { "type": "style", "section": "🧹 Chores", "hidden": false },
 
         { "type": "build", "section": "🤖 Automation", "hidden": false },
         { "type": "ci", "section": "🤖 Automation", "hidden": true }
