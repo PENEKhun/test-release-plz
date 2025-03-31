@@ -2,7 +2,7 @@ name: Release Please
 
 on:
   workflow_run:
-    workflows: [ "CI" ]
+    workflows: ["CI"]
     types:
       - completed
 
@@ -10,11 +10,17 @@ jobs:
   release_please:
     name: release-please
     runs-on: ubuntu-latest
+    # 메인 브랜치에 push되었고 CI가 성공한 경우만 실행하도록 조건 설정
+    if: >
+      ${{ github.event.workflow_run.conclusion == 'success' &&
+         github.event.workflow_run.event == 'push' &&
+         startsWith(github.event.workflow_run.ref, 'refs/heads/main') }}
     outputs:
       releaseCreated: ${{ steps.release.outputs.release_created }}
     permissions:
       contents: write
       pull-requests: write
+
     steps:
       - uses: googleapis/release-please-action@v4
         id: release
@@ -27,13 +33,12 @@ jobs:
     runs-on: ubuntu-latest
     environment: npm
     needs: release_please
+    # release_please 잡에서 release가 생성되었는지 여부로 publish 실행 여부 결정
     if: needs.release_please.outputs.releaseCreated
     permissions:
       id-token: write
     steps:
       - uses: actions/checkout@v4
-        with:
-          show-progress: false
       - uses: actions/setup-node@v4
         with:
           node-version: '20.18.3'
