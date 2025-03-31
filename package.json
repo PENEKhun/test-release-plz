@@ -8,6 +8,16 @@
         "email": "penekhun@gamil.com",
         "url": "https://www.github.com/penekhun"
     },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/PENEKhun/test-release-plz.git"
+    },
+    "bugs": {
+        "url": "https://github.com/PENEKhun/test-release-plz/issues/"
+    },
+    "discord": "https://discord.gg/ZhXk7VSu5Z",
+    "homepage": "https://github.com/PENEKhun/test-release-plz",
+    "logo": "https://avatars.githubusercontent.com/u/198292884?s=48&v=4",
     "type": "module",
     "exports": {
         ".": {
