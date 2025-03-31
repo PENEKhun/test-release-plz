@@ -14,7 +14,6 @@ jobs:
   release_please:
     name: release-please
     runs-on: ubuntu-latest
-    # 메인 브랜치에 push되었고 CI가 성공한 경우만 실행하도록 조건 설정
     if: >
       ${{ github.event.workflow_run.conclusion == 'success' &&
          github.event.workflow_run.event == 'push' &&
