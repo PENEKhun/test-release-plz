@@ -1,6 +1,8 @@
 # itdoc
 
-> ⚠️ 아직은 개발 중인 프로젝트 입니다. 당장은 사용하실 수 없습니다.
+```bash
+npm install itdoc
+```
 
 ## Overview
 
