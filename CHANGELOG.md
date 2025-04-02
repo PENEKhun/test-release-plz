@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.5](https://github.com/PENEKhun/test-release-plz/compare/v0.1.4...v0.1.5) (2025-04-02)
+
+
+### 🧹 Chores
+
+* files랑 keyword 지정 ([59523d6](https://github.com/PENEKhun/test-release-plz/commit/59523d6c8037c8e4b5b827f429f37e65c0afeb81))
+
 ## [0.1.4](https://github.com/PENEKhun/test-release-plz/compare/v0.1.3...v0.1.4) (2025-03-31)
 
 
