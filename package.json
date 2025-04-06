@@ -32,7 +32,6 @@
     "types": "build/index.d.ts",
     "files": [
         "build",
-        "lib",
         "README.md",
         "LICENSE"
     ],
