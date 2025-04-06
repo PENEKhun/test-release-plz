@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.6](https://github.com/PENEKhun/test-release-plz/compare/v0.1.5...v0.1.6) (2025-04-06)
+
+
+### 🧹 Chores
+
+* remove 'lib' from files in package.json and add build step in release-please.yml ([8d19e84](https://github.com/PENEKhun/test-release-plz/commit/8d19e8485507e73346af15ba87ce00e94967bf87))
+
 ## [0.1.5](https://github.com/PENEKhun/test-release-plz/compare/v0.1.4...v0.1.5) (2025-04-02)
 
 

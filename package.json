@@ -1,6 +1,6 @@
 {
     "name": "penekdoc-test",
-    "version": "0.1.5",
+    "version": "0.1.6",
     "description": "Test-driven documentation for RESTful services",
     "license": "Apache-2.0",
     "author": {
