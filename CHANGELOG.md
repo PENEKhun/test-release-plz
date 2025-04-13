@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.2.0](https://github.com/PENEKhun/test-release-plz/compare/v0.1.6...v0.2.0) (2025-04-13)
+
+
+### 🌟 Features
+
+* ab ([41e9c0b](https://github.com/PENEKhun/test-release-plz/commit/41e9c0bcc20af84dd831cc7cd816d65f3e3b346b))
+* abc ([6ebef5f](https://github.com/PENEKhun/test-release-plz/commit/6ebef5f6d902db90f43b67e13d0ac6273708a0dd))
+* abcd ([9e7a5eb](https://github.com/PENEKhun/test-release-plz/commit/9e7a5eb2e2e525ba3389e91a6557d5c4781baa95))
+* abcde ([20bc32b](https://github.com/PENEKhun/test-release-plz/commit/20bc32bc50930941e6af350416610f07c15f5238))
+* abcdef ([abaa23c](https://github.com/PENEKhun/test-release-plz/commit/abaa23c60dbe1cfd2262ca5e40ebb4f7fece5038))
+* asd ([63136a2](https://github.com/PENEKhun/test-release-plz/commit/63136a2ecfad4a1543a499006b59f508fab9f1e2))
+* 변수화 ([fe3868e](https://github.com/PENEKhun/test-release-plz/commit/fe3868ec1180d735caf5ed8653e8724e03bb911f))
+
 ## [0.1.6](https://github.com/PENEKhun/test-release-plz/compare/v0.1.5...v0.1.6) (2025-04-06)
 
 ### 🧹 Chores
