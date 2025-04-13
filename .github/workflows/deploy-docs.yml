@@ -1,63 +1,78 @@
 name: Deploy ITDOC Documentation
 
 on:
-    push:
-        branches:
-            - main
-        paths:
-            - "itdoc-doc/**"
-    workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - "itdoc-doc/**"
+  workflow_dispatch:
 
 permissions:
-    contents: read
-    pages: write
-    id-token: write
+  contents: read
+  pages: write
+  id-token: write
 
 concurrency:
-    group: "pages"
-    cancel-in-progress: false
+  group: "pages"
+  cancel-in-progress: false
 
 env:
   DOCS_DIR: itdoc-doc
 
 jobs:
-    deploy:
-        environment:
-            name: github-pages
-            url: ${{ steps.deployment.outputs.page_url }}
-        runs-on: ubuntu-latest
-        steps:
-            - name: Checkout
-              uses: actions/checkout@v4
-            - name: Set up Node.js
-              uses: actions/setup-node@v4
-              with:
-                  node-version: 20
-                  cache: "pnpm"
-                  cache-dependency-path: ${{ env.DOCS_DIR }}/pnpm-lock.yaml
-            - name: Install pnpm
-              uses: pnpm/action-setup@v3
-              with:
-                version: 10.5.2
-            - uses: actions/cache@v3
-              name: Setup pnpm cache
-              with:
-                  path: ${{ env.STORE_PATH }}
-                  key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-                  restore-keys: |
-                      ${{ runner.os }}-pnpm-store-
-            - name: Install dependencies
-              working-directory: ./itdoc-doc
-              run: pnpm install --frozen-lockfile
-            - name: Build
-              working-directory: ${{ env.DOCS_DIR }}
-              run: pnpm build
-            - name: Setup Pages
-              uses: actions/configure-pages@v4
-            - name: Upload artifact
-              uses: actions/upload-pages-artifact@v3
-              with:
-                path: ${{ env.DOCS_DIR }}/build
-            - name: Deploy to GitHub Pages
-              id: deployment
-              uses: actions/deploy-pages@v4
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "pnpm"
+          cache-dependency-path: ${{ env.DOCS_DIR }}/pnpm-lock.yaml
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 10.5.2
+
+      - name: Add pnpm to PATH
+        run: echo "$HOME/.local/share/pnpm" >> $GITHUB_PATH
+
+      - name: Get pnpm store directory
+        id: pnpm-store
+        run: echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_ENV
+
+      - name: Setup pnpm cache
+        uses: actions/cache@v3
+        with:
+          path: ${{ env.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - name: Install dependencies
+        working-directory: ${{ env.DOCS_DIR }}
+        run: pnpm install --frozen-lockfile
+
+      - name: Build
+        working-directory: ${{ env.DOCS_DIR }}
+        run: pnpm build
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ${{ env.DOCS_DIR }}/build
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
