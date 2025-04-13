@@ -17,6 +17,9 @@ concurrency:
     group: "pages"
     cancel-in-progress: false
 
+env:
+  DOCS_DIR: itdoc-doc
+
 jobs:
     deploy:
         environment:
@@ -31,7 +34,7 @@ jobs:
               with:
                   node-version: 20
                   cache: "pnpm"
-                  cache-dependency-path: itdoc-doc/pnpm-lock.yaml
+                  cache-dependency-path: ${{ env.DOCS_DIR }}/pnpm-lock.yaml
             - name: Install pnpm
               uses: pnpm/action-setup@v2
               with:
@@ -52,14 +55,14 @@ jobs:
               working-directory: ./itdoc-doc
               run: pnpm install --frozen-lockfile
             - name: Build
-              working-directory: ./itdoc-doc
+              working-directory: ${{ env.DOCS_DIR }}
               run: pnpm build
             - name: Setup Pages
               uses: actions/configure-pages@v4
             - name: Upload artifact
               uses: actions/upload-pages-artifact@v3
               with:
-                  path: ./itdoc-doc/build
+                path: ${{ env.DOCS_DIR }}/build
             - name: Deploy to GitHub Pages
               id: deployment
               uses: actions/deploy-pages@v4
