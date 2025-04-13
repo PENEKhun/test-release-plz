@@ -1,6 +1,6 @@
 {
-    "name": "itdoc",
-    "version": "0.0.1",
+    "name": "penekdoc-test",
+    "version": "0.1.6",
     "description": "Test-driven documentation for RESTful services",
     "license": "Apache-2.0",
     "author": {
@@ -10,14 +10,14 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/do-pa/itdoc.git"
+        "url": "https://github.com/PENEKhun/test-release-plz.git"
     },
     "bugs": {
-        "url": "https://github.com/do-pa/itdoc/issues/"
+        "url": "https://github.com/PENEKhun/test-release-plz/issues/"
     },
     "discord": "https://discord.gg/ZhXk7VSu5Z",
-    "homepage": "https://github.com/do-pa/itdoc",
-    "logo": "https://github.com/user-attachments/assets/e84820f5-194e-48c0-99d6-f43d8038a157",
+    "homepage": "https://github.com/PENEKhun/test-release-plz",
+    "logo": "https://avatars.githubusercontent.com/u/198292884?s=48&v=4",
     "type": "module",
     "exports": {
         ".": {
