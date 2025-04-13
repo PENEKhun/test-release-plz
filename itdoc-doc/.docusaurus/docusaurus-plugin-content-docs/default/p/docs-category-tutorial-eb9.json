@@ -1,0 +1,13 @@
+{
+    "categoryGeneratedIndex": {
+        "title": "Tutorial",
+        "description": "Tutorial",
+        "slug": "/category/tutorial",
+        "permalink": "/docs/category/tutorial",
+        "sidebar": "tutorialSidebar",
+        "navigation": {
+            "previous": { "title": "Getting Started with itdoc", "permalink": "/docs/intro" },
+            "next": { "title": "Quick Start Guide", "permalink": "/docs/guides/quick-start" }
+        }
+    }
+}

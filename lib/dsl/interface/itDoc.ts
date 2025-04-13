@@ -15,23 +15,32 @@
  */
 
 import { getTestAdapterExports } from "../adapters"
+import { testContext } from "./testContext"
+import { recordTestFailure, testEventManager } from "../generator"
 
-/**
- * 케이스 별 테스트를 정의를 위한 함수
- * @param description 테스트 설명
- * @param testFn 테스트 함수
- */
 export const itDoc = (description: string, testFn: () => Promise<void>): void => {
     if (!description) {
-        throw new Error("Test description is required at itDoc.")
+        throw new Error("테스트 설명이 itDoc에 필요합니다.")
     }
 
     if (!testFn) {
-        throw new Error("Test function is required at itDoc.")
+        throw new Error("테스트 함수가 itDoc에 필요합니다.")
     }
 
+    testEventManager.registerTest()
+
     const { itCommon } = getTestAdapterExports()
+
     itCommon(description, async () => {
-        await testFn()
+        try {
+            return testContext.run(description, async () => {
+                await testFn()
+                testEventManager.completeTestSuccess()
+            })
+        } catch (error) {
+            // 테스트 실패 기록
+            recordTestFailure()
+            throw error
+        }
     })
 }

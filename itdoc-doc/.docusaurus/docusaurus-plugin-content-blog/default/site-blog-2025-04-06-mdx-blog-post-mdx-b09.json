@@ -1,0 +1,55 @@
+{
+    "permalink": "/blog/itdoc",
+    "editUrl": "https://github.com/do-pa/itdoc/blog/2025-04-06-mdx-blog-post.mdx",
+    "source": "@site/blog/2025-04-06-mdx-blog-post.mdx",
+    "title": "itdoc을 배포합니다.",
+    "description": "안녕하세요 itdoc을 만들고 있는 아이돌 주홍철입니다.",
+    "date": "2025-04-06T00:00:00.000Z",
+    "tags": [
+        {
+            "inline": true,
+            "label": "itdoc",
+            "permalink": "/blog/tags/itdoc"
+        },
+        {
+            "inline": true,
+            "label": "javascript",
+            "permalink": "/blog/tags/javascript"
+        },
+        {
+            "inline": true,
+            "label": "test",
+            "permalink": "/blog/tags/test"
+        },
+        {
+            "inline": true,
+            "label": "typescript",
+            "permalink": "/blog/tags/typescript"
+        }
+    ],
+    "readingTime": 0.24,
+    "hasTruncateMarker": true,
+    "authors": [
+        {
+            "name": "주홍철",
+            "title": "CTO @ AVISS",
+            "url": "https://github.com/wngdhcjfe",
+            "page": {
+                "permalink": "/blog/authors/wnghdcjfe"
+            },
+            "email": "contact@aviss.kr",
+            "socials": {
+                "github": "https://github.com/wnghdcjfe"
+            },
+            "imageURL": "https://avatars.githubusercontent.com/u/6982437?v=4",
+            "key": "wnghdcjfe"
+        }
+    ],
+    "frontMatter": {
+        "slug": "itdoc",
+        "title": "itdoc을 배포합니다.",
+        "authors": ["wnghdcjfe"],
+        "tags": ["itdoc", "javascript", "test", "typescript"]
+    },
+    "unlisted": false
+}

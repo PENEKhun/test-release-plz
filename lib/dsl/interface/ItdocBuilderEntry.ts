@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import { HttpMethod } from "../enums/HttpMethod"
+import { HttpMethod } from "../enums"
 import { TestCaseConfig } from "../test-builders/TestCaseConfig"
 import { RootBuilder } from "../test-builders/RootBuilder"
 
@@ -35,19 +35,23 @@ export class ItdocBuilderEntry {
     }
 
     public test(): RootBuilder {
-        return new RootBuilder(this.options.defaults, this.method, this.url, this.app)
+        const config = {
+            apiOptions: this.options,
+            ...this.options.defaults,
+        }
+        return new RootBuilder(config, this.method, this.url, this.app)
     }
 }
 
 /**
  * Describe API에 넘길 옵션 인터페이스
- * @param name API 이름
+ * @param name API 이름 (한줄 설명)
  * @param tag API 태그
- * @param summary API 요약
+ * @param description API 상세 설명
  */
 export interface ApiDocOptions {
-    name?: string
-    tag?: string
     summary?: string
+    tag?: string
+    description?: string
     defaults?: TestCaseConfig
 }

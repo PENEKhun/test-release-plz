@@ -1,0 +1,13 @@
+{
+    "categoryGeneratedIndex": {
+        "title": "API Reference",
+        "description": "API Reference",
+        "slug": "/category/api-reference",
+        "permalink": "/docs/category/api-reference",
+        "sidebar": "tutorialSidebar",
+        "navigation": {
+            "previous": { "title": "Quick Start Guide", "permalink": "/docs/guides/quick-start" },
+            "next": { "title": "API Reference", "permalink": "/docs/api-reference/reference" }
+        }
+    }
+}

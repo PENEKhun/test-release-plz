@@ -1,0 +1,75 @@
+{
+    "version": {
+        "pluginId": "default",
+        "version": "current",
+        "label": "Next",
+        "banner": null,
+        "badge": false,
+        "noIndex": false,
+        "className": "docs-version-current",
+        "isLast": true,
+        "docsSidebars": {
+            "tutorialSidebar": [
+                {
+                    "type": "link",
+                    "label": "Getting Started with itdoc",
+                    "href": "/docs/intro",
+                    "docId": "intro",
+                    "unlisted": false
+                },
+                {
+                    "type": "category",
+                    "label": "Tutorial",
+                    "collapsible": true,
+                    "collapsed": true,
+                    "items": [
+                        {
+                            "type": "link",
+                            "label": "Quick Start Guide",
+                            "href": "/docs/guides/quick-start",
+                            "docId": "guides/quick-start",
+                            "unlisted": false
+                        }
+                    ],
+                    "href": "/docs/category/tutorial"
+                },
+                {
+                    "type": "category",
+                    "label": "API Reference",
+                    "collapsible": true,
+                    "collapsed": true,
+                    "items": [
+                        {
+                            "type": "link",
+                            "label": "API Reference",
+                            "href": "/docs/api-reference/reference",
+                            "docId": "api-reference/reference",
+                            "unlisted": false
+                        }
+                    ],
+                    "href": "/docs/category/api-reference"
+                }
+            ]
+        },
+        "docs": {
+            "api-reference/reference": {
+                "id": "api-reference/reference",
+                "title": "API Reference",
+                "description": "This page provides a comprehensive reference to the core APIs of itdoc.",
+                "sidebar": "tutorialSidebar"
+            },
+            "guides/quick-start": {
+                "id": "guides/quick-start",
+                "title": "Quick Start Guide",
+                "description": "This guide will help you get started with itdoc quickly by walking through a simple example using",
+                "sidebar": "tutorialSidebar"
+            },
+            "intro": {
+                "id": "intro",
+                "title": "Getting Started with itdoc",
+                "description": "itdoc is a lightweight library that helps automatically generate test code based on Jest,",
+                "sidebar": "tutorialSidebar"
+            }
+        }
+    }
+}

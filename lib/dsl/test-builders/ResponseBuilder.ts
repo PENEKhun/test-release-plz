@@ -16,10 +16,13 @@
 
 import { HttpStatus } from "../enums"
 import { DSLField } from "../interface"
-import supertest from "supertest"
+import supertest, { Response } from "supertest"
 import { validateResponse } from "./validateResponse"
 import { isDSLField } from "../interface/field"
 import { AbstractTestBuilder } from "./AbstractTestBuilder"
+import { recordTestFailure, resultCollector, TestResult } from "../generator"
+import logger from "../../config/logger"
+import { testContext } from "../interface/testContext"
 
 /**
  * API 응답을 검증하기 위한 결과값을 설정하는 빌더 클래스입니다.
@@ -30,18 +33,18 @@ export class ResponseBuilder extends AbstractTestBuilder {
         return this
     }
 
-    // public header(headers: Record<string, string>): this {
-    //   TODO: expectHeader 구현
-    //   this.config.expectedHeaders = headers
-    //   return this
-    // }
+    public header(headers: Record<string, string | DSLField<string>>): this {
+        this.config.expectedResponseHeaders = headers
+        return this
+    }
 
     public body(body: Record<string, DSLField>): this {
         this.config.expectedResponseBody = body
         return this
     }
 
-    private async runTest(): Promise<Response> {
+    private async runTest(): Promise<TestResult> {
+        logger.debug(`runTest: ${this.method} ${this.url}`)
         if (!this.config.expectedStatus) {
             throw new Error("Expected status is required")
         }
@@ -107,47 +110,108 @@ export class ResponseBuilder extends AbstractTestBuilder {
             req = req.expect((res: Response) => {
                 if (Object.keys(res.body ?? {}).length > 0) {
                     const formattedBody = JSON.stringify(res.body, null, 2)
+                    logger.debug(`Response body is required. Response Body:${formattedBody}`)
                     throw new Error(
-                        `Expected response body is required.
-                    Response Body:${formattedBody}`,
+                        `Expected response body is required. Response Body:${formattedBody}`,
                     )
                 }
             })
         }
+        if (this.config.expectedResponseHeaders) {
+            req = req.expect((res: Response) => {
+                for (const [headerName, headerValue] of Object.entries(
+                    this.config.expectedResponseHeaders!,
+                )) {
+                    const expectedHeaderValue = isDSLField(headerValue)
+                        ? headerValue.example
+                        : headerValue
+                    const actualHeaderValue = res.headers[headerName.toLowerCase()]
+                    if (expectedHeaderValue !== actualHeaderValue) {
+                        logger.debug(
+                            `Expected response header "${headerName}" to be "${expectedHeaderValue}", but got "${actualHeaderValue}"`,
+                        )
+                        throw new Error(
+                            `Expected response header "${headerName}" to be "${expectedHeaderValue}", but got "${actualHeaderValue}"`,
+                        )
+                    }
+                }
+            })
+        }
+
+        const logToPrint = {
+            request: {
+                path: finalUrl,
+                method: this.method,
+                headers: this.config.requestHeaders,
+                queryParams: this.config.queryParams,
+                pathParams: this.config.pathParams,
+                requestBody: this.config.requestBody,
+            },
+            response: {
+                status: 1,
+                responseBody: null,
+            },
+        }
         try {
             const res = await req
-            if (this.config.prettyPrint) {
-                console.log(`=== API TEST REQUEST ===
-              Method: ${this.method}
-              URL: ${finalUrl}
-              Headers: ${JSON.stringify(this.config.requestHeaders, null, 2)}
-              Query Params: ${JSON.stringify(this.config.queryParams, null, 2)}
-              Request Body: ${JSON.stringify(this.config.requestBody, null, 2)}
-              === API TEST RESPONSE ===
-              Status: ${res.status}
-              Response Body: ${JSON.stringify(res.body, null, 2)}
-              `)
+            logToPrint.response = {
+                status: res.status,
+                responseBody: res.body,
             }
-            // @ts-expect-error TODO: ignore 사용하지 않도록 코드 수정
-            return res
+
+            if (this.config.prettyPrint) {
+                logger.info("API TEST PASSED", {
+                    request: logToPrint.request,
+                    response: logToPrint.response,
+                })
+            }
+
+            const testResult: TestResult = {
+                method: this.method,
+                url: this.url,
+                options: this.config.apiOptions || {},
+                request: {
+                    body: this.config.requestBody,
+                    headers: this.prepareHeadersForCollector(this.config.requestHeaders),
+                    queryParams: this.config.queryParams,
+                    pathParams: this.config.pathParams,
+                },
+                response: {
+                    status: res.status,
+                    body: this.config.expectedResponseBody || res.body, // 검증을 위한 예상 응답 본문을 우선으로 사용
+                    headers: res.headers,
+                },
+                testSuiteDescription: testContext.get() || "",
+            }
+
+            resultCollector.collectResult(testResult)
+            return testResult
         } catch (error: any) {
             if (this.config.prettyPrint) {
-                console.log(`=== API TEST REQUEST (on Error) ===
-              Method: ${this.method}
-              URL: ${finalUrl}
-              Headers: ${JSON.stringify(this.config.requestHeaders, null, 2)}
-              Query Params: ${JSON.stringify(this.config.queryParams, null, 2)}
-              Request Body: ${JSON.stringify(this.config.requestBody, null, 2)}
-              === API TEST RESPONSE (Error) ===
-              ${error.response ? error.response : error.message}
-              `)
+                logger.info("API TEST FAILED", {
+                    request: logToPrint.request,
+                    error: error.response ? error.response : error.message,
+                })
             }
+            recordTestFailure()
             throw error
         }
     }
 
-    public then<TResult1 = Response, TResult2 = never>(
-        resolve?: ((value: Response) => TResult1 | PromiseLike<TResult1>) | null,
+    private prepareHeadersForCollector(
+        headers?: Record<string, string | DSLField<string>>,
+    ): Record<string, string> | undefined {
+        if (!headers) return undefined
+
+        const result: Record<string, string> = {}
+        for (const [key, value] of Object.entries(headers)) {
+            result[key] = isDSLField(value) ? String(value.example) : String(value)
+        }
+        return result
+    }
+
+    public then<TResult1 = TestResult, TResult2 = never>(
+        resolve?: ((value: TestResult) => TResult1 | PromiseLike<TResult1>) | null,
         reject?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | null,
     ): Promise<TResult1 | TResult2> {
         return this.runTest().then(resolve, reject)

@@ -14,9 +14,13 @@
  * limitations under the License.
  */
 
-import { HttpMethod } from "../enums/HttpMethod"
+import { HttpMethod } from "../enums"
 import { getTestAdapterExports } from "../adapters"
 import { ItdocBuilderEntry, ApiDocOptions } from "./ItdocBuilderEntry"
+import { configureOASExport } from "../generator"
+import { getOutputPath } from "../../config/getOutputPath"
+import * as path from "path"
+const outputPath = path.resolve(getOutputPath(), "oas.json")
 
 /**
  * API 명세를 위한 describe 함수
@@ -33,7 +37,7 @@ export const describeAPI = (
     app: unknown, // TODO: 이거 타입지정
     callback: (apiDoc: ItdocBuilderEntry) => void,
 ): void => {
-    if (!options.name) {
+    if (!options.summary) {
         throw new Error("API name is required.")
     }
 
@@ -48,9 +52,9 @@ export const describeAPI = (
     if (!callback) {
         throw new Error("API test function is required.")
     }
-
+    configureOASExport(outputPath)
     const { describeCommon } = getTestAdapterExports()
-    describeCommon(`${options.name} | [${method}] ${url}`, () => {
+    describeCommon(`${options.summary} | [${method}] ${url}`, () => {
         const apiDoc = new ItdocBuilderEntry(method, url, options, app)
         callback(apiDoc)
     })

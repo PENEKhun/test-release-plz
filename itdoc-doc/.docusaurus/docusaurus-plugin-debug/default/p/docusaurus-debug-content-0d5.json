@@ -1,0 +1,338 @@
+{
+    "allContent": {
+        "docusaurus-plugin-content-docs": {
+            "default": {
+                "loadedVersions": [
+                    {
+                        "versionName": "current",
+                        "label": "Next",
+                        "banner": null,
+                        "badge": false,
+                        "noIndex": false,
+                        "className": "docs-version-current",
+                        "path": "/docs",
+                        "tagsPath": "/docs/tags",
+                        "editUrl": "https://github.com/do-pa/itdoc/docs",
+                        "editUrlLocalized": "https://github.com/do-pa/itdoc/i18n/en/docusaurus-plugin-content-docs/current",
+                        "isLast": true,
+                        "routePriority": -1,
+                        "sidebarFilePath": "/Volumes/BackupDrive/project/itdoc/itdoc-doc/sidebars.ts",
+                        "contentPath": "/Volumes/BackupDrive/project/itdoc/itdoc-doc/docs",
+                        "contentPathLocalized": "/Volumes/BackupDrive/project/itdoc/itdoc-doc/i18n/en/docusaurus-plugin-content-docs/current",
+                        "docs": [
+                            {
+                                "id": "api-reference/reference",
+                                "title": "API Reference",
+                                "description": "This page provides a comprehensive reference to the core APIs of itdoc.",
+                                "source": "@site/docs/api-reference/reference.mdx",
+                                "sourceDirName": "api-reference",
+                                "slug": "/api-reference/reference",
+                                "permalink": "/docs/api-reference/reference",
+                                "draft": false,
+                                "unlisted": false,
+                                "editUrl": "https://github.com/do-pa/itdoc/docs/api-reference/reference.mdx",
+                                "tags": [],
+                                "version": "current",
+                                "sidebarPosition": 1,
+                                "frontMatter": { "sidebar_position": 1 },
+                                "sidebar": "tutorialSidebar",
+                                "previous": {
+                                    "title": "API Reference",
+                                    "permalink": "/docs/category/api-reference"
+                                }
+                            },
+                            {
+                                "id": "guides/quick-start",
+                                "title": "Quick Start Guide",
+                                "description": "This guide will help you get started with itdoc quickly by walking through a simple example using",
+                                "source": "@site/docs/guides/quick-start.mdx",
+                                "sourceDirName": "guides",
+                                "slug": "/guides/quick-start",
+                                "permalink": "/docs/guides/quick-start",
+                                "draft": false,
+                                "unlisted": false,
+                                "editUrl": "https://github.com/do-pa/itdoc/docs/guides/quick-start.mdx",
+                                "tags": [],
+                                "version": "current",
+                                "sidebarPosition": 1,
+                                "frontMatter": { "sidebar_position": 1 },
+                                "sidebar": "tutorialSidebar",
+                                "previous": {
+                                    "title": "Tutorial",
+                                    "permalink": "/docs/category/tutorial"
+                                },
+                                "next": {
+                                    "title": "API Reference",
+                                    "permalink": "/docs/category/api-reference"
+                                }
+                            },
+                            {
+                                "id": "intro",
+                                "title": "Getting Started with itdoc",
+                                "description": "itdoc is a lightweight library that helps automatically generate test code based on Jest,",
+                                "source": "@site/docs/intro.mdx",
+                                "sourceDirName": ".",
+                                "slug": "/intro",
+                                "permalink": "/docs/intro",
+                                "draft": false,
+                                "unlisted": false,
+                                "editUrl": "https://github.com/do-pa/itdoc/docs/intro.mdx",
+                                "tags": [],
+                                "version": "current",
+                                "sidebarPosition": 1,
+                                "frontMatter": { "sidebar_position": 1 },
+                                "sidebar": "tutorialSidebar",
+                                "next": {
+                                    "title": "Tutorial",
+                                    "permalink": "/docs/category/tutorial"
+                                }
+                            }
+                        ],
+                        "drafts": [],
+                        "sidebars": {
+                            "tutorialSidebar": [
+                                { "type": "doc", "id": "intro" },
+                                {
+                                    "type": "category",
+                                    "label": "Tutorial",
+                                    "collapsible": true,
+                                    "collapsed": true,
+                                    "items": [{ "type": "doc", "id": "guides/quick-start" }],
+                                    "link": {
+                                        "type": "generated-index",
+                                        "description": "Tutorial",
+                                        "slug": "/category/tutorial",
+                                        "permalink": "/docs/category/tutorial"
+                                    }
+                                },
+                                {
+                                    "type": "category",
+                                    "label": "API Reference",
+                                    "collapsible": true,
+                                    "collapsed": true,
+                                    "items": [{ "type": "doc", "id": "api-reference/reference" }],
+                                    "link": {
+                                        "type": "generated-index",
+                                        "description": "API Reference",
+                                        "slug": "/category/api-reference",
+                                        "permalink": "/docs/category/api-reference"
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        },
+        "docusaurus-plugin-content-blog": {
+            "default": {
+                "blogSidebarTitle": "Recent posts",
+                "blogPosts": [
+                    {
+                        "id": "itdoc",
+                        "metadata": {
+                            "permalink": "/blog/itdoc",
+                            "editUrl": "https://github.com/do-pa/itdoc/blog/2025-04-06-mdx-blog-post.mdx",
+                            "source": "@site/blog/2025-04-06-mdx-blog-post.mdx",
+                            "title": "itdoc을 배포합니다.",
+                            "description": "안녕하세요 itdoc을 만들고 있는 아이돌 주홍철입니다.",
+                            "date": "2025-04-06T00:00:00.000Z",
+                            "tags": [
+                                {
+                                    "inline": true,
+                                    "label": "itdoc",
+                                    "permalink": "/blog/tags/itdoc"
+                                },
+                                {
+                                    "inline": true,
+                                    "label": "javascript",
+                                    "permalink": "/blog/tags/javascript"
+                                },
+                                { "inline": true, "label": "test", "permalink": "/blog/tags/test" },
+                                {
+                                    "inline": true,
+                                    "label": "typescript",
+                                    "permalink": "/blog/tags/typescript"
+                                }
+                            ],
+                            "readingTime": 0.24,
+                            "hasTruncateMarker": true,
+                            "authors": [
+                                {
+                                    "name": "주홍철",
+                                    "title": "CTO @ AVISS",
+                                    "url": "https://github.com/wngdhcjfe",
+                                    "page": { "permalink": "/blog/authors/wnghdcjfe" },
+                                    "email": "contact@aviss.kr",
+                                    "socials": { "github": "https://github.com/wnghdcjfe" },
+                                    "imageURL": "https://avatars.githubusercontent.com/u/6982437?v=4",
+                                    "key": "wnghdcjfe"
+                                }
+                            ],
+                            "frontMatter": {
+                                "slug": "itdoc",
+                                "title": "itdoc을 배포합니다.",
+                                "authors": ["wnghdcjfe"],
+                                "tags": ["itdoc", "javascript", "test", "typescript"]
+                            },
+                            "unlisted": false
+                        },
+                        "content": "안녕하세요 itdoc을 만들고 있는 아이돌 주홍철입니다.\n\n{/* truncate */}\n\n:::tip\n\nitdoc은 자바스크립트 진영계의 테스트 선두주자를 꿈꿉니다.\n\n:::"
+                    }
+                ],
+                "blogListPaginated": [
+                    {
+                        "items": ["itdoc"],
+                        "metadata": {
+                            "permalink": "/blog",
+                            "page": 1,
+                            "postsPerPage": 10,
+                            "totalPages": 1,
+                            "totalCount": 1,
+                            "blogDescription": "Blog",
+                            "blogTitle": "Blog"
+                        }
+                    }
+                ],
+                "blogTags": {
+                    "/blog/tags/itdoc": {
+                        "inline": true,
+                        "label": "itdoc",
+                        "permalink": "/blog/tags/itdoc",
+                        "items": ["itdoc"],
+                        "pages": [
+                            {
+                                "items": ["itdoc"],
+                                "metadata": {
+                                    "permalink": "/blog/tags/itdoc",
+                                    "page": 1,
+                                    "postsPerPage": 10,
+                                    "totalPages": 1,
+                                    "totalCount": 1,
+                                    "blogDescription": "Blog",
+                                    "blogTitle": "Blog"
+                                }
+                            }
+                        ],
+                        "unlisted": false
+                    },
+                    "/blog/tags/javascript": {
+                        "inline": true,
+                        "label": "javascript",
+                        "permalink": "/blog/tags/javascript",
+                        "items": ["itdoc"],
+                        "pages": [
+                            {
+                                "items": ["itdoc"],
+                                "metadata": {
+                                    "permalink": "/blog/tags/javascript",
+                                    "page": 1,
+                                    "postsPerPage": 10,
+                                    "totalPages": 1,
+                                    "totalCount": 1,
+                                    "blogDescription": "Blog",
+                                    "blogTitle": "Blog"
+                                }
+                            }
+                        ],
+                        "unlisted": false
+                    },
+                    "/blog/tags/test": {
+                        "inline": true,
+                        "label": "test",
+                        "permalink": "/blog/tags/test",
+                        "items": ["itdoc"],
+                        "pages": [
+                            {
+                                "items": ["itdoc"],
+                                "metadata": {
+                                    "permalink": "/blog/tags/test",
+                                    "page": 1,
+                                    "postsPerPage": 10,
+                                    "totalPages": 1,
+                                    "totalCount": 1,
+                                    "blogDescription": "Blog",
+                                    "blogTitle": "Blog"
+                                }
+                            }
+                        ],
+                        "unlisted": false
+                    },
+                    "/blog/tags/typescript": {
+                        "inline": true,
+                        "label": "typescript",
+                        "permalink": "/blog/tags/typescript",
+                        "items": ["itdoc"],
+                        "pages": [
+                            {
+                                "items": ["itdoc"],
+                                "metadata": {
+                                    "permalink": "/blog/tags/typescript",
+                                    "page": 1,
+                                    "postsPerPage": 10,
+                                    "totalPages": 1,
+                                    "totalCount": 1,
+                                    "blogDescription": "Blog",
+                                    "blogTitle": "Blog"
+                                }
+                            }
+                        ],
+                        "unlisted": false
+                    }
+                },
+                "blogTagsListPath": "/blog/tags",
+                "authorsMap": {
+                    "wnghdcjfe": {
+                        "name": "주홍철",
+                        "title": "CTO @ AVISS",
+                        "url": "https://github.com/wngdhcjfe",
+                        "page": { "permalink": "/blog/authors/wnghdcjfe" },
+                        "email": "contact@aviss.kr",
+                        "socials": { "github": "https://github.com/wnghdcjfe" },
+                        "imageURL": "https://avatars.githubusercontent.com/u/6982437?v=4",
+                        "key": "wnghdcjfe"
+                    },
+                    "PENEKhun": {
+                        "name": "문성훈",
+                        "title": "Back-end @ 가비아",
+                        "url": "https://github.com/PENEKhun",
+                        "page": { "permalink": "/blog/authors/pene-khun" },
+                        "email": "penekhun@gmail.com",
+                        "socials": { "github": "https://github.com/PENEKhun" },
+                        "imageURL": "https://avatars.githubusercontent.com/u/13290706?v=4",
+                        "key": "PENEKhun"
+                    },
+                    "cjs1301": {
+                        "name": "최재송",
+                        "title": "Back-end @ 프리랜서",
+                        "url": "https://github.com/cjs1301",
+                        "page": { "permalink": "/blog/authors/cjs-1301" },
+                        "email": "cjs5241@gmail.com",
+                        "socials": { "github": "https://github.com/cjs1301" },
+                        "imageURL": "https://avatars.githubusercontent.com/u/77596321?v=4",
+                        "key": "cjs1301"
+                    }
+                }
+            }
+        },
+        "docusaurus-plugin-content-pages": {
+            "default": [
+                { "type": "jsx", "permalink": "/", "source": "@site/src/pages/index.tsx" },
+                {
+                    "type": "mdx",
+                    "permalink": "/markdown-page",
+                    "source": "@site/src/pages/markdown-page.md",
+                    "title": "Markdown page example",
+                    "description": "You don't need React to write simple standalone pages.",
+                    "frontMatter": { "title": "Markdown page example" },
+                    "unlisted": false
+                }
+            ]
+        },
+        "docusaurus-plugin-debug": {},
+        "docusaurus-plugin-svgr": {},
+        "docusaurus-theme-classic": {},
+        "docusaurus-bootstrap-plugin": {},
+        "docusaurus-mdx-fallback-plugin": {}
+    }
+}

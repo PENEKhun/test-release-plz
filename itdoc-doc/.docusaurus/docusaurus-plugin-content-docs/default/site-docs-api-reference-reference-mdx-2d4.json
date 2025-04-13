@@ -1,0 +1,23 @@
+{
+    "id": "api-reference/reference",
+    "title": "API Reference",
+    "description": "This page provides a comprehensive reference to the core APIs of itdoc.",
+    "source": "@site/docs/api-reference/reference.mdx",
+    "sourceDirName": "api-reference",
+    "slug": "/api-reference/reference",
+    "permalink": "/docs/api-reference/reference",
+    "draft": false,
+    "unlisted": false,
+    "editUrl": "https://github.com/do-pa/itdoc/docs/api-reference/reference.mdx",
+    "tags": [],
+    "version": "current",
+    "sidebarPosition": 1,
+    "frontMatter": {
+        "sidebar_position": 1
+    },
+    "sidebar": "tutorialSidebar",
+    "previous": {
+        "title": "API Reference",
+        "permalink": "/docs/category/api-reference"
+    }
+}

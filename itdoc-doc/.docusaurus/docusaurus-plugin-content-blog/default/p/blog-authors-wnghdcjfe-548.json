@@ -1,0 +1,22 @@
+{
+    "author": {
+        "name": "주홍철",
+        "title": "CTO @ AVISS",
+        "url": "https://github.com/wngdhcjfe",
+        "page": { "permalink": "/blog/authors/wnghdcjfe" },
+        "email": "contact@aviss.kr",
+        "socials": { "github": "https://github.com/wnghdcjfe" },
+        "imageURL": "https://avatars.githubusercontent.com/u/6982437?v=4",
+        "key": "wnghdcjfe",
+        "count": 1
+    },
+    "listMetadata": {
+        "permalink": "/blog/authors/wnghdcjfe",
+        "page": 1,
+        "postsPerPage": 10,
+        "totalPages": 1,
+        "totalCount": 1,
+        "blogDescription": "Blog",
+        "blogTitle": "Blog"
+    }
+}

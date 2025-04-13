@@ -1,0 +1,22 @@
+{
+    "author": {
+        "name": "최재송",
+        "title": "Back-end @ 프리랜서",
+        "url": "https://github.com/cjs1301",
+        "page": { "permalink": "/blog/authors/cjs-1301" },
+        "email": "cjs5241@gmail.com",
+        "socials": { "github": "https://github.com/cjs1301" },
+        "imageURL": "https://avatars.githubusercontent.com/u/77596321?v=4",
+        "key": "cjs1301",
+        "count": 0
+    },
+    "listMetadata": {
+        "permalink": "/blog/authors/cjs-1301",
+        "page": 1,
+        "postsPerPage": 10,
+        "totalPages": 1,
+        "totalCount": 0,
+        "blogDescription": "Blog",
+        "blogTitle": "Blog"
+    }
+}

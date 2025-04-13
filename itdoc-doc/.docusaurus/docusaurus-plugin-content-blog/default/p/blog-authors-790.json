@@ -1,0 +1,37 @@
+{
+    "authors": [
+        {
+            "name": "주홍철",
+            "title": "CTO @ AVISS",
+            "url": "https://github.com/wngdhcjfe",
+            "page": { "permalink": "/blog/authors/wnghdcjfe" },
+            "email": "contact@aviss.kr",
+            "socials": { "github": "https://github.com/wnghdcjfe" },
+            "imageURL": "https://avatars.githubusercontent.com/u/6982437?v=4",
+            "key": "wnghdcjfe",
+            "count": 1
+        },
+        {
+            "name": "문성훈",
+            "title": "Back-end @ 가비아",
+            "url": "https://github.com/PENEKhun",
+            "page": { "permalink": "/blog/authors/pene-khun" },
+            "email": "penekhun@gmail.com",
+            "socials": { "github": "https://github.com/PENEKhun" },
+            "imageURL": "https://avatars.githubusercontent.com/u/13290706?v=4",
+            "key": "PENEKhun",
+            "count": 0
+        },
+        {
+            "name": "최재송",
+            "title": "Back-end @ 프리랜서",
+            "url": "https://github.com/cjs1301",
+            "page": { "permalink": "/blog/authors/cjs-1301" },
+            "email": "cjs5241@gmail.com",
+            "socials": { "github": "https://github.com/cjs1301" },
+            "imageURL": "https://avatars.githubusercontent.com/u/77596321?v=4",
+            "key": "cjs1301",
+            "count": 0
+        }
+    ]
+}

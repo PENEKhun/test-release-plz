@@ -1,0 +1,23 @@
+{
+    "id": "intro",
+    "title": "Getting Started with itdoc",
+    "description": "itdoc is a lightweight library that helps automatically generate test code based on Jest,",
+    "source": "@site/docs/intro.mdx",
+    "sourceDirName": ".",
+    "slug": "/intro",
+    "permalink": "/docs/intro",
+    "draft": false,
+    "unlisted": false,
+    "editUrl": "https://github.com/do-pa/itdoc/docs/intro.mdx",
+    "tags": [],
+    "version": "current",
+    "sidebarPosition": 1,
+    "frontMatter": {
+        "sidebar_position": 1
+    },
+    "sidebar": "tutorialSidebar",
+    "next": {
+        "title": "Tutorial",
+        "permalink": "/docs/category/tutorial"
+    }
+}
