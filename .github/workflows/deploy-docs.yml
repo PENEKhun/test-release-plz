@@ -34,16 +34,11 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: "pnpm"
-          cache-dependency-path: ${{ env.DOCS_DIR }}/pnpm-lock.yaml
 
       - name: Install pnpm
         uses: pnpm/action-setup@v3
         with:
           version: 10.5.2
-
-      - name: Add pnpm to PATH
-        run: echo "$HOME/.local/share/pnpm" >> $GITHUB_PATH
 
       - name: Get pnpm store directory
         id: pnpm-store
