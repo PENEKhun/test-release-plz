@@ -35,7 +35,7 @@ export default defineConfig({
 
     // 트리쉐이킹 활성화
     // 사용하지 않는 코드 제거
-    treeshake: false,
+    treeshake: true,
 
     // 코드 최소화 비활성화
     // 개발 편의성 및 빌드 속도 개선
