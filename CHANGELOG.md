@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.2.1](https://github.com/PENEKhun/test-release-plz/compare/v0.2.0...v0.2.1) (2025-04-20)
+
+
+### 🩹 Fixes
+
+* qqqq ([553d430](https://github.com/PENEKhun/test-release-plz/commit/553d430aff6be64a0a8a1e2f92095e2c9772f37c))
+
+
+### 📚 Documentation
+
+* asdasd ([27f204c](https://github.com/PENEKhun/test-release-plz/commit/27f204c9d442c4f5bbb342710f9ce123ebb78205))
+
 ## [0.2.0](https://github.com/PENEKhun/test-release-plz/compare/v0.1.6...v0.2.0) (2025-04-20)
 
 
