@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.2.2](https://github.com/PENEKhun/test-release-plz/compare/v0.2.1...v0.2.2) (2025-04-20)
+
+
+### 🩹 Fixes
+
+* hello ([2bc66f0](https://github.com/PENEKhun/test-release-plz/commit/2bc66f0b53d29525262d08a0785c384090122dd5))
+* hello ([1e64fdb](https://github.com/PENEKhun/test-release-plz/commit/1e64fdb28180d734b44224b8abf47003c91fe21f))
+
 ## [0.2.1](https://github.com/PENEKhun/test-release-plz/compare/v0.2.0...v0.2.1) (2025-04-20)
 
 
