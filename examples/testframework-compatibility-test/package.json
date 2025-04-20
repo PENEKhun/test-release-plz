@@ -17,9 +17,9 @@
         "spec": "./__tests__/**/*.test.ts"
     },
     "devDependencies": {
-        "penekdoc-test": "workspace:*",
         "jest": "^29.7.0",
         "mocha": "^10.3.0",
+        "penekdoc-test": "workspace:*",
         "ts-jest": "^29.2.6"
     }
 }

@@ -1,5 +1,5 @@
 const app = require("../expressApp.js")
-const { describeAPI, itDoc, HttpStatus, field, HttpMethod } = require("itdoc")
+const { describeAPI, itDoc, HttpStatus, field, HttpMethod } = require("penekdoc-test")
 
 const targetApp = app
 
