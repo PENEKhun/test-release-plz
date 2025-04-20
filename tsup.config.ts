@@ -18,7 +18,7 @@ export default defineConfig({
     clean: true,
 
     // 번들에서 제외할 외부 의존성
-    external: ["express", "mocha", "jest"],
+    external: ["express", "mocha", "jest", "supertest", "chalk"],
 
     // 번들 출력 디렉토리
     outDir: "build",
@@ -35,7 +35,7 @@ export default defineConfig({
 
     // 트리쉐이킹 활성화
     // 사용하지 않는 코드 제거
-    treeshake: true,
+    treeshake: false,
 
     // 코드 최소화 비활성화
     // 개발 편의성 및 빌드 속도 개선
@@ -45,5 +45,5 @@ export default defineConfig({
     metafile: false,
 
     // 항상 번들에 포함할 패키지
-    noExternal: ["supertest", "consola"],
+    noExternal: ["consola"],
 })
