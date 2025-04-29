@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.0](https://github.com/PENEKhun/test-release-plz/compare/v0.2.2...v0.3.0) (2025-04-29)
+
+
+### 🌟 Features
+
+* cli 코드 적용 ([8f59d90](https://github.com/PENEKhun/test-release-plz/commit/8f59d90655d609ff1c11bb318150f94c5e8b07de))
+
 ## [0.2.2](https://github.com/PENEKhun/test-release-plz/compare/v0.2.1...v0.2.2) (2025-04-20)
 
 
