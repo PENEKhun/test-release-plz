@@ -14,66 +14,66 @@
  * limitations under the License.
  */
 
-/* TODO: no-console 해제 후, console.log() 제거. logger를 사용하도록 변경 해야함. */
-/* eslint-disable no-console */
-
-import { execSync } from "child_process"
-import { existsSync, mkdirSync } from "fs"
-import { fileURLToPath } from "url"
-import { dirname, join } from "path"
-import chalk from "chalk"
+import { loadConfig, bundle } from "@redocly/openapi-core"
+import widdershins from "widdershins"
+import { promises as fs } from "fs"
+import { join } from "path"
 import logger from "../../lib/config/logger"
 
 /**
- * 현재 파일의 절대 경로를 가져옵니다.
- * @constant {string}
+ * OpenAPI 파일을 Markdown 및 HTML 문서로 변환합니다.
+ * @param {string} oasOutputPath 변환할 OpenAPI 파일 경로 (YAML 또는 JSON)
+ * @param {string} outputDir 생성된 문서를 저장할 출력 디렉터리 경로
+ * @returns {Promise<void>} 변환 작업이 완료되면 해결되는 Promise
  */
-const __filename: string = fileURLToPath(import.meta.url)
+export async function generateDocs(oasOutputPath: string, outputDir: string): Promise<void> {
+    if (!outputDir) {
+        throw new Error("유효한 출력 경로가 제공되지 않았습니다.")
+    }
 
-/**
- * 현재 파일이 위치한 디렉토리의 경로를 가져옵니다.
- * @constant {string}
- */
-const __dirname: string = dirname(__filename)
+    try {
+        logger.box("ITDOC MAKEDOCS SCRIPT START")
 
-/**
- * 출력 디렉토리의 경로를 설정합니다.
- * @constant {string}
- */
-const outputDir: string = join(__dirname, "../../", "output")
-if (!existsSync(outputDir)) {
-    mkdirSync(outputDir, { recursive: true })
-}
+        const markdownPath = join(outputDir, "api.md")
+        const htmlPath = join(outputDir, "redoc.html")
 
-/**
- * OpenAPI YAML 파일의 경로를 설정합니다.
- * @constant {string}
- */
-const openapiPath: string = join(__dirname, "../oas/openapi.yaml")
-if (!existsSync(openapiPath)) {
-    logger.error(`OAS 파일을 찾을 수 없습니다. 경로: ${openapiPath}`)
-    process.exit(1)
-}
+        logger.info(`OAS 파일 경로: ${oasOutputPath}`)
+        logger.info(`Markdown 경로: ${markdownPath}`)
+        logger.info(`HTML 경로: ${htmlPath}`)
 
-try {
-    logger.box(`ITDOC MAKEDOCS SCRIPT START`)
-    logger.info(`OAS 파일 경로: ${openapiPath}`)
-    logger.info(`Step 1: OpenAPI YAML 파일을 Markdown으로 변환시작`)
-    const markdownPath = join(outputDir, "output.md")
-    execSync(`npx widdershins "${openapiPath}" -o "${markdownPath}"`, {
-        stdio: "inherit",
-        cwd: __dirname,
-    })
-    logger.info(`Step 1: OpenAPI YAML 파일을 Markdown으로 변환완료: ${markdownPath}`)
-    logger.info(`Step 2: Redocly CLI를 사용하여 HTML 문서 생성시작`)
-    const htmlPath = join(outputDir, "redoc.html")
-    execSync(`npx @redocly/cli build-docs "${openapiPath}" --output "${htmlPath}"`, {
-        stdio: "inherit",
-        cwd: __dirname,
-    })
-    logger.info(`Step 2: Redocly CLI를 사용하여 HTML 문서 생성완료: ${htmlPath}`)
-    logger.info(`모든 작업이 성공적으로 완료되었습니다.`)
-} catch (error: unknown) {
-    console.error(chalk.red("오류 발생:"), error)
-    process.exit(1)
+        const config = await loadConfig({})
+        logger.info("Step 1: Redocly 구성 로드 완료")
+
+        const bundleResult = await bundle({ ref: oasOutputPath, config })
+        const api = bundleResult.bundle.parsed
+        logger.info("Step 2: OpenAPI 번들링 완료")
+        const widdershinsOpts = { headings: 2, summary: true }
+        console.log = () => {}
+        const markdown = await widdershins.convert(api, widdershinsOpts)
+        await fs.writeFile(markdownPath, markdown, "utf-8")
+        logger.info("Step 3: Markdown 생성 완료")
+
+        const safeSpec = JSON.stringify(api).replace(/</g, "\\u003c")
+        const htmlContent = `<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>${api.info.title ?? "API Docs"}</title>
+  <script src="https://cdn.redoc.ly/redoc/latest/bundles/redoc.standalone.js"></script>
+</head>
+<body>
+  <redoc></redoc>
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      Redoc.init(${safeSpec}, {}, document.querySelector('redoc'));
+    });
+  </script>
+</body>
+</html>`
+        await fs.writeFile(htmlPath, htmlContent, "utf-8")
+        logger.info("Step 4: HTML 생성 완료")
+    } catch (error: unknown) {
+        logger.error("문서 생성 중 오류 발생:", error)
+        process.exit(1)
+    }
 }
