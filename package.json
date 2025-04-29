@@ -83,6 +83,7 @@
         "spec": "lib/__tests__/**/*.test.ts"
     },
     "dependencies": {
+        "fast-glob": "^3.3.3",
         "@redocly/cli": "^1.34.0",
         "@redocly/openapi-core": "^1.34.2",
         "chalk": "^4.1.2",
