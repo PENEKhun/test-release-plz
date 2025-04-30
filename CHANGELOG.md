@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.1](https://github.com/PENEKhun/test-release-plz/compare/v0.3.0...v0.3.1) (2025-04-29)
+
+
+### 🩹 Fixes
+
+* examples 경로문제 해결 적용 ([bf1ecb9](https://github.com/PENEKhun/test-release-plz/commit/bf1ecb9950daa611e9c028751bcf36f45d7efaa7))
+
 ## [0.3.0](https://github.com/PENEKhun/test-release-plz/compare/v0.2.2...v0.3.0) (2025-04-29)
 
 
